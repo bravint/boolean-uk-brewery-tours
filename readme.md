@@ -35,7 +35,7 @@ Instructions
 - Create action functions that update state
 - Create render functions that read from state
  
-Steve Huckle: Tips
+Tips
 
 - Start with the logic first, use console.log(state) to check your logic is working; when the logic is working as expected move onto styling
 - Use a cleanData function to modify the data in the fetch request before adding it to state

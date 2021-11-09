@@ -48,7 +48,8 @@ function filterBySearch (brewery) {
 function filterBreweries (data) {
   let itemCounter = 0;
   let pageNumber = (state.page * 10)-10;
-  document.querySelector('.breweries-list').innerHTML = '';
+  let breweriesList = document.querySelector('.breweries-list');
+  while (breweriesList.firstChild) breweriesList.removeChild(breweriesList.firstChild);
   for (let i=pageNumber; i < data.length; i++) {
     if (filterByType(data[i]) && filterByCity(data[i]) && filterBySearch(data[i]) && itemCounter < 10) {
       renderBrewery (data[i]);
@@ -147,7 +148,7 @@ function createSection3A (selectedBrewery) {
 function renderAsideCitiesList () {
   const formCities = document.querySelector('#filter-by-city-form');
   const docFragment = document.createDocumentFragment();
-  formCities.innerHTML = '';
+  while (formCities.firstChild) formCities.removeChild(formCities.firstChild);
   for (let i = 0; i < state.cities.length; i++ ) {
     const input = formCitiesInput (`${state.cities[i]}`);
     const label = formCitiesLabel (`${state.cities[i]}`);
@@ -400,7 +401,7 @@ formStateEvent()
 
 function renderPage(data) {
   const main = document.querySelector('main');
-  main.innerHTML='';
+  while (main.firstChild) main.removeChild(main.firstChild);
   renderList();
   filterBreweries (data);
   renderAside();
